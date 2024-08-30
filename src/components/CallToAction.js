@@ -1,5 +1,6 @@
 import React from "react";
-import SteamLogo from "../images/logo_steam.svg";
+import SteamLogo from "../images/logo_Steam.svg";
+import EpicStoreLogo from "../images/logo_EpicStore.svg";
 
 export default function CallToAction() {
   return (
@@ -14,7 +15,12 @@ export default function CallToAction() {
           alt="Steam Logo"
           className="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out"
         />
-        {/* TODO: Epic Store */}
+        {/* Epic Store */}
+        <img
+          src={EpicStoreLogo}
+          alt="Epic Store Logo"
+          className="h-16 pr-12 transform hover:scale-125 duration-300 ease-in-out"
+        />
       </div>
     </div>
   );
