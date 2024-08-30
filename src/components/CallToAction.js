@@ -8,7 +8,7 @@ export default function CallToAction() {
     <div className="mx-auto md:pt-16">
       <p className="text-blue-400 font-bold pb-8 lg:pb-6 text-center">
         Download our game&nbsp;
-        <span className="double-underline">for free:</span>
+        <span className="double-underline">FOR FREE:</span>
       </p>
       <div className="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
         {/* Steam */}
