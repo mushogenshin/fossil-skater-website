@@ -1,6 +1,5 @@
 import React from "react";
-import AppleAppStoreSvg from "../images/AppleAppStore.png";
-import GooglePlayStoreSvg from "../images/GooglePlayStore.png";
+import SteamLogo from "../images/logo_steam.svg";
 
 export default function CallToAction() {
   return (
@@ -9,19 +8,13 @@ export default function CallToAction() {
         Download our game:
       </p>
       <div className="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
-        {/* TODO: Steam */}
+        {/* Steam */}
         <img
-          //   src={logo}
-          src={AppleAppStoreSvg}
-          alt="Apple App Store"
+          src={SteamLogo}
+          alt="Steam Logo"
           className="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out"
         />
         {/* TODO: Epic Store */}
-        <img
-          src={GooglePlayStoreSvg}
-          alt="Google Play Store"
-          className="h-12 transform hover:scale-125 duration-300 ease-in-out"
-        />
       </div>
     </div>
   );
