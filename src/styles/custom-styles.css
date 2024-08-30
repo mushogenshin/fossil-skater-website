@@ -1,0 +1,16 @@
+.double-underline {
+    position: relative;
+    display: inline-block;
+}
+  
+.double-underline::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Height of the underline */
+    background: yellow; /* Color of the underline */
+    bottom: -4px; /* Distance from the text */
+    left: 0;
+    border-bottom: 2px solid yellow; /* Second underline */
+    border-top: 2px solid yellow; /* First underline */
+}
