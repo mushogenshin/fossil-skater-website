@@ -1,14 +1,15 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
+import "./custom-forms.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="text-center text-3xl text-blue-400 font-bold">
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
           Hello world!
-        </h1>
+        </span>
       </header>
     </div>
   );
