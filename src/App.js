@@ -6,7 +6,7 @@ import SubscribeForm from "./components/SubscribeForm";
 
 function App() {
   return (
-    <body className="leading-normal tracking-normal text-indigo-400 bg-cover bg-fixed bg-hero-pattern w-full h-screen">
+    <div className="leading-normal tracking-normal text-indigo-400 bg-cover bg-fixed bg-hero-pattern w-full h-screen">
       <div className="h-full">
         <Nav />
         {/* Main */}
@@ -16,7 +16,7 @@ function App() {
           <Footer />
         </div>
       </div>
-    </body>
+    </div>
   );
 }
 
