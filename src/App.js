@@ -7,7 +7,7 @@ import GameWindow from "./components/GameWindow";
 
 function App() {
   return (
-    <div className="leading-normal tracking-normal text-indigo-400 bg-cover bg-fixed w-full h-screen">
+    <div className="leading-normal tracking-normal text-indigo-400 bg-cover bg-fixed">
       <div className="bg-hero-pattern">
         <Nav />
         {/* Main */}
