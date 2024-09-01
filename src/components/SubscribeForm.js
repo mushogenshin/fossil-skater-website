@@ -27,7 +27,7 @@ export default function SubscribeForm() {
           className="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
           id="emailaddress"
           type="email"
-          placeholder="you@somewhere.com"
+          placeholder="t-rex@on8wheeler.speed"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
