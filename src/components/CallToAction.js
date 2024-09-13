@@ -12,17 +12,29 @@ export default function CallToAction() {
       </p>
       <div className="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
         {/* Steam */}
-        <img
-          src={SteamLogo}
-          alt="Steam Logo"
-          className="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out"
-        />
+        <a
+          href="https://store.steampowered.com/app/3205980/Fossil_Skater/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            src={SteamLogo}
+            alt="Steam Logo"
+            className="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out"
+          />
+        </a>
         {/* Epic Store */}
-        <img
-          src={EpicStoreLogo}
-          alt="Epic Store Logo"
-          className="h-16 pr-12 transform hover:scale-125 duration-300 ease-in-out"
-        />
+        <a
+          href="https://store.epicgames.com/en-US/p/fossil-skater-4c66d0"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            src={EpicStoreLogo}
+            alt="Epic Store Logo"
+            className="h-16 pr-12 transform hover:scale-125 duration-300 ease-in-out"
+          />
+        </a>
       </div>
     </div>
   );
