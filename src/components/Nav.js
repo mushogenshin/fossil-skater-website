@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Nav() {
   return (
     <div className="w-full container mx-auto">
@@ -15,6 +13,13 @@ export default function Nav() {
         </a>
 
         <div className="flex w-1/2 justify-end content-center">
+          {/* Dino List */}
+          <a
+            className="inline-block text-blue-300 no-underline hover:text-pink-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out"
+            href="https://truongcgartist.gumroad.com/"
+          >
+            Dino
+          </a>
           {/* Twitter */}
           <a
             className="inline-block text-blue-300 no-underline hover:text-pink-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out"
