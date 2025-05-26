@@ -16,6 +16,15 @@ const dinosaurs = [
   // Add more dinosaur objects here...
 ];
 
+const statusColors = {
+  "NOT SUITABLE": "bg-red-500",
+  AVAILABLE: "bg-green-500",
+  "PICKED-NEEDS-PREP": "bg-yellow-500",
+  PREPPING: "bg-blue-500",
+  "IN-GAME": "bg-purple-500",
+  "IN-GAME-UNUSED": "bg-gray-500",
+};
+
 function DinosaurGallery() {
   const [columns, setColumns] = useState(4);
 
@@ -52,7 +61,14 @@ function DinosaurGallery() {
             />
             <h2 className="text-lg font-bold">{dino.name}</h2>
             <p className="text-sm">Source: {dino.sourcePath}</p>
-            <p className="text-sm">Status: {dino.status}</p>
+            <p className="text-sm flex items-center">
+              <span
+                className={`w-3 h-3 rounded-full mr-2 ${
+                  statusColors[dino.status]
+                }`}
+              ></span>
+              {dino.status}
+            </p>
           </div>
         ))}
       </div>
