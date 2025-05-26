@@ -18,7 +18,7 @@ export default function Nav() {
           {/* Twitter */}
           <a
             className="inline-block text-blue-300 no-underline hover:text-pink-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out"
-            href="https://twitter.com/intent/tweet?url=#"
+            // href="https://twitter.com/intent/tweet?url=#"
           >
             <svg
               className="fill-current h-6"
@@ -31,7 +31,7 @@ export default function Nav() {
           {/* Facebook */}
           <a
             className="inline-block text-blue-300 no-underline hover:text-pink-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out"
-            href="https://www.facebook.com/sharer/sharer.php?u=#"
+            // href="https://www.facebook.com/sharer/sharer.php?u=#"
           >
             <svg
               className="fill-current h-6"
