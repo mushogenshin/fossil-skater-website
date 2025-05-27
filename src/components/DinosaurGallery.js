@@ -34,50 +34,120 @@ const statusColors = {
 
 function DinosaurGallery() {
   const [columns, setColumns] = useState(4);
+  const [layout, setLayout] = useState("grid"); // "grid" or "list"
+  const [sortBy, setSortBy] = useState("name"); // "name" or "status"
+
+  const sortedDinosaurs = [...dinosaurs].sort((a, b) => {
+    if (sortBy === "name") {
+      return a.name.localeCompare(b.name);
+    } else if (sortBy === "status") {
+      return a.status.localeCompare(b.status);
+    }
+    return 0;
+  });
 
   return (
     <div className="p-8 min-h-screen">
       <h1 className="text-3xl font-bold mb-4">Dinosaur Gallery</h1>
-      <div className="mb-4">
-        <label htmlFor="columns" className="mr-2">
-          Columns:
-        </label>
-        <input
-          id="columns"
-          type="range"
-          min="2"
-          max="6"
-          value={columns}
-          onChange={(e) => setColumns(Number(e.target.value))}
-          className="w-48"
-        />
+      <div className="mb-4 flex flex-wrap gap-4">
+        {/* Layout Toggle Buttons */}
+        <button
+          onClick={() => setLayout("grid")}
+          className={`px-4 py-2 rounded ${
+            layout === "grid" ? "bg-blue-500 text-white" : "bg-gray-200"
+          }`}
+        >
+          Grid View
+        </button>
+        <button
+          onClick={() => setLayout("list")}
+          className={`px-4 py-2 rounded ${
+            layout === "list" ? "bg-blue-500 text-white" : "bg-gray-200"
+          }`}
+        >
+          List View
+        </button>
+
+        {/* Sort Buttons */}
+        <button
+          onClick={() => setSortBy("name")}
+          className={`px-4 py-2 rounded ${
+            sortBy === "name" ? "bg-green-500 text-white" : "bg-gray-200"
+          }`}
+        >
+          Sort by Name
+        </button>
+        <button
+          onClick={() => setSortBy("status")}
+          className={`px-4 py-2 rounded ${
+            sortBy === "status" ? "bg-green-500 text-white" : "bg-gray-200"
+          }`}
+        >
+          Sort by Status
+        </button>
       </div>
+
+      {/* Columns Slider (only for grid layout) */}
+      {layout === "grid" && (
+        <div className="mb-4">
+          <label htmlFor="columns" className="mr-2">
+            Columns:
+          </label>
+          <input
+            id="columns"
+            type="range"
+            min="2"
+            max="6"
+            value={columns}
+            onChange={(e) => setColumns(Number(e.target.value))}
+            className="w-48"
+          />
+        </div>
+      )}
+
+      {/* Gallery Display */}
       <div
-        className={`grid gap-4`}
-        style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
+        className={`${
+          layout === "grid" ? "grid gap-4" : "flex flex-col gap-4"
+        }`}
+        style={
+          layout === "grid"
+            ? { gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }
+            : {}
+        }
       >
-        {dinosaurs.map((dino, index) => (
+        {sortedDinosaurs.map((dino, index) => (
           <div
             key={index}
-            className="border rounded-lg p-4 bg-white shadow-md text-black"
+            className={`border rounded-lg p-4 bg-white shadow-md text-black ${
+              layout === "list" ? "flex items-center" : ""
+            }`}
           >
-            <div className="w-full aspect-w-4 aspect-h-3 mb-2">
+            <div
+              className={`${
+                layout === "grid"
+                  ? "w-full aspect-w-4 aspect-h-3 mb-2"
+                  : "w-24 h-24 flex-shrink-0 mr-4"
+              }`}
+            >
               <img
                 src={dino.image}
                 alt={dino.name}
                 className="w-full h-full object-cover rounded-md"
               />
             </div>
-            <h2 className="text-lg font-bold">{dino.name}</h2>
-            <p className="text-sm">Source: {dino.sourcePath}</p>
-            <p className="text-sm flex items-center">
-              <span
-                className={`w-3 h-3 rounded-full mr-2 ${
-                  statusColors[dino.status]
-                }`}
-              ></span>
-              {dino.status}
-            </p>
+            <div>
+              <h2 className="text-lg font-bold">{dino.name}</h2>
+              <p className="text-sm">Source: {dino.sourcePath}</p>
+              <p className="text-sm flex items-center">
+                <span
+                  className={`w-3 h-3 rounded-full mr-2 ${
+                    statusColors[dino.status]
+                  }`}
+                ></span>
+                {dino.status}
+              </p>
+            </div>
           </div>
         ))}
       </div>
