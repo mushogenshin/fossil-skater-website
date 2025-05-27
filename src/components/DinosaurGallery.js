@@ -107,11 +107,27 @@ const dinosaurs = [
     priority: 1,
   },
   {
-    name: "Lion",
+    name: "Lioness",
     type: "animal",
     image: images("./Lion.webp"),
     sourcePath: "quadrupeds/lion",
     status: "CAN USE",
+    priority: 1,
+  },
+  {
+    name: "Lion Cub",
+    type: "animal",
+    image: images("./LionCub.png"),
+    sourcePath: "quadrupeds/lionCub",
+    status: "CAN USE",
+    priority: 1,
+  },
+  {
+    name: "Lion",
+    type: "animal",
+    image: images("./TobiasLion.webp"),
+    sourcePath: "quadrupeds/TobiasLion",
+    status: "FUR NEEDED",
     priority: 1,
   },
   {
@@ -128,6 +144,14 @@ const dinosaurs = [
     image: images("./Warthog.webp"),
     sourcePath: "quadrupeds/warthog",
     status: "CAN USE",
+    priority: 1,
+  },
+  {
+    name: "Bear",
+    type: "animal",
+    image: images("./Bear.webp"),
+    sourcePath: "quadrupeds/bear",
+    status: "FUR NEEDED",
     priority: 1,
   },
   {
@@ -302,6 +326,7 @@ const dinosaurs = [
 
 const statusColors = {
   "ON HOLD": "bg-yellow-500",
+  "FUR NEEDED": "bg-yellow-500",
   "CAN USE": "bg-green-500",
   "PICKED. NEEDS PREP": "bg-red-500",
   PREPPING: "bg-blue-500",
