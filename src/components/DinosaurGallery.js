@@ -3,7 +3,7 @@ import { FaTh, FaBars, FaStar } from "react-icons/fa"; // Import Font Awesome ic
 
 // Procedurally import all images from the dino_gallery directory
 const images = require.context(
-  "../images/dino-gallery",
+  "../images/asset-gallery",
   false,
   /\.(png|jpe?g|webp)$/
 );
@@ -11,13 +11,23 @@ const images = require.context(
 const dinosaurs = [
   {
     name: "Brachiosaurus",
+    type: "dinosaur",
     image: images("./Brachiosaurus.webp"),
     sourcePath: "quadrupeds/Brachiosaurus",
     status: "AVAILABLE",
     priority: 5,
   },
   {
+    name: "Crocodile",
+    type: "",
+    image: images("./Crocodile.webp"),
+    sourcePath: "quadrupeds/Crocodile",
+    status: "AVAILABLE",
+    priority: 3,
+  },
+  {
     name: "Triceratops",
+    type: "dinosaur",
     image: images("./Triceratops.jpg"),
     sourcePath: "quadrupeds/Triceratops",
     status: "IN-GAME",
@@ -25,6 +35,7 @@ const dinosaurs = [
   },
   {
     name: "T-Rex (classic)",
+    type: "dinosaur",
     image: images("./T-Rex_classic.webp"),
     sourcePath: "doubleknee/trexClassic",
     status: "IN-GAME",
@@ -73,7 +84,7 @@ function DinosaurGallery() {
   return (
     <div className="p-8 min-h-screen">
       <h1 className="text-3xl font-bold mb-4">
-        Truong CG Artist's Dinosaur Assets
+        Truong CG Artist's Animal Assets
       </h1>
       <div className="mb-4 flex flex-wrap gap-4">
         {/* Layout Toggle Buttons */}
