@@ -259,6 +259,14 @@ const dinosaurs = [
     priority: 1,
   },
   {
+    name: "King Kong",
+    type: "humanoid",
+    image: images("./KingKong.webp"),
+    sourcePath: "bipeds/KingKong",
+    status: "FUR NEEDED",
+    priority: 1,
+  },
+  {
     name: "Alien Big Head",
     type: "fantasy",
     image: images("./AlienBigHead.webp"),
@@ -477,7 +485,7 @@ function DinosaurGallery() {
             </div>
             <div>
               <h2 className="text-lg font-bold">{dino.name}</h2>
-              <p className="text-sm flex items-center text-gray-400">
+              <p className="text-xs flex items-center text-gray-400">
                 <span
                   className={`w-3 h-3 rounded-full mr-2 ${
                     statusColors[dino.status]
@@ -486,9 +494,12 @@ function DinosaurGallery() {
                 {dino.status}
               </p>
               {/* Display priority stars if status is among specific enums */}
-              {["CAN USE", "PICKED. NEEDS PREP", "PREPPING"].includes(
-                dino.status
-              ) && (
+              {[
+                "CAN USE",
+                "FUR NEEDED",
+                "PICKED. NEEDS PREP",
+                "PREPPING",
+              ].includes(dino.status) && (
                 <div className="flex items-center mt-2">
                   <span className="text-xxxs text-gray-400 mr-2">
                     Priority:
