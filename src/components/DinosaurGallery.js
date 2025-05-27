@@ -302,7 +302,7 @@ function DinosaurGallery() {
             id="columns"
             type="range"
             min="2"
-            max="8"
+            max="10"
             value={columns}
             onChange={(e) => setColumns(Number(e.target.value))}
             className="w-48"
@@ -323,8 +323,14 @@ function DinosaurGallery() {
         {sortedDinosaurs.map((dino, index) => (
           <div
             key={index}
-            className={`border rounded-lg p-4 bg-white shadow-md text-black ${
+            className={`border rounded-lg p-4 shadow-md text-black ${
               layout === "list" ? "flex items-center" : ""
+            } ${
+              layout === "list"
+                ? index % 2 === 0
+                  ? "bg-gray-300"
+                  : "bg-white"
+                : "bg-white"
             }`}
           >
             <div
@@ -355,7 +361,9 @@ function DinosaurGallery() {
                 dino.status
               ) && (
                 <div className="flex items-center mt-2">
-                  <span className="text-xxs text-gray-400 mr-2">Priority:</span>
+                  <span className="text-xxxs text-gray-400 mr-2">
+                    Priority:
+                  </span>
                   {Array.from({ length: dino.priority }, (_, i) => (
                     <FontAwesomeIcon
                       key={i}
@@ -365,7 +373,7 @@ function DinosaurGallery() {
                   ))}
                 </div>
               )}
-              <p className="text-xxs text-gray-200">
+              <p className="text-xxxs text-gray-400">
                 Source: {dino.sourcePath.split("/")[0]}
               </p>
             </div>
