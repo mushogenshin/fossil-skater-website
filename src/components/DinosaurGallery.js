@@ -14,7 +14,7 @@ const dinosaurs = [
     name: "Triceratops",
     type: "dinosaur",
     image: images("./Triceratops.jpg"),
-    sourcePath: "quadrupeds/Triceratops",
+    sourcePath: "quadrupeds/triceratops",
     status: "IN-GAME",
     priority: 0,
   },
@@ -30,7 +30,7 @@ const dinosaurs = [
     name: "Brachiosaurus",
     type: "dinosaur",
     image: images("./Brachiosaurus.webp"),
-    sourcePath: "quadrupeds/Brachiosaurus",
+    sourcePath: "quadrupeds/BrachiosaurusDinosaur",
     status: "PICKED. NEEDS PREP",
     priority: 5,
   },
@@ -46,7 +46,7 @@ const dinosaurs = [
     name: "Allosaurus",
     type: "dinosaur",
     image: images("./Allosaurus.jpg"),
-    sourcePath: "doubleKnee/Allosaurus",
+    sourcePath: "doubleKnee/allosaurus",
     status: "CAN USE",
     priority: 2,
   },
@@ -54,7 +54,7 @@ const dinosaurs = [
     name: "Allosaurus 2",
     type: "dinosaur",
     image: images("./Allosaurus-2.webp"),
-    sourcePath: "doubleKnee/Allosaurus2",
+    sourcePath: "doubleKnee/allosaurus2",
     status: "CAN USE",
     priority: 2,
   },
@@ -94,9 +94,65 @@ const dinosaurs = [
     name: "Crocodile",
     type: "animal",
     image: images("./Crocodile.webp"),
-    sourcePath: "quadrupeds/Crocodile",
+    sourcePath: "quadrupeds/crocodile",
     status: "PICKED. NEEDS PREP",
     priority: 4,
+  },
+  {
+    name: "Bull",
+    type: "animal",
+    image: images("./Bull.webp"),
+    sourcePath: "quadrupeds/bull",
+    status: "CAN USE",
+    priority: 1,
+  },
+  {
+    name: "Lion",
+    type: "animal",
+    image: images("./Lion.webp"),
+    sourcePath: "quadrupeds/lion",
+    status: "CAN USE",
+    priority: 1,
+  },
+  {
+    name: "SphynxCat",
+    type: "animal",
+    image: images("./SphynxCat.webp"),
+    sourcePath: "quadrupeds/sphynxCat",
+    status: "CAN USE",
+    priority: 1,
+  },
+  {
+    name: "Boxy Rhino",
+    type: "animal",
+    image: images("./BoxyRhino.webp"),
+    sourcePath: "quadrupeds/boxyRhino",
+    status: "CAN USE",
+    priority: 1,
+  },
+  {
+    name: "Boxy Stag",
+    type: "animal",
+    image: images("./BoxyStag.webp"),
+    sourcePath: "quadrupeds/boxyStag",
+    status: "CAN USE",
+    priority: 1,
+  },
+  {
+    name: "Boxy Saber Tiger",
+    type: "animal",
+    image: images("./BoxySaberTiger.webp"),
+    sourcePath: "quadrupeds/boxySaberTiger",
+    status: "CAN USE",
+    priority: 1,
+  },
+  {
+    name: "Tiger Mechanic",
+    type: "animal",
+    image: images("./TigerMechanic.webp"),
+    sourcePath: "quadrupeds/tigerMechanic",
+    status: "CAN USE",
+    priority: 1,
   },
   {
     name: "Ben Dragon",
@@ -118,7 +174,7 @@ const dinosaurs = [
     name: "Three-Headed Dragon",
     type: "fantasy",
     image: images("./ThreeHeadedDragon.webp"),
-    sourcePath: "quadrupeds/ThreeHeadsDragon",
+    sourcePath: "quadrupeds/threeHeadsDragon",
     status: "CAN USE",
     priority: 1,
   },
@@ -302,7 +358,7 @@ function DinosaurGallery() {
             id="columns"
             type="range"
             min="2"
-            max="10"
+            max="12"
             value={columns}
             onChange={(e) => setColumns(Number(e.target.value))}
             className="w-48"
@@ -368,7 +424,7 @@ function DinosaurGallery() {
                     <FontAwesomeIcon
                       key={i}
                       icon={faSackDollar}
-                      className="text-pink-300 text-sm mr-1"
+                      className="text-xxxxs text-pink-400 text-sm mr-1"
                     />
                   ))}
                 </div>
