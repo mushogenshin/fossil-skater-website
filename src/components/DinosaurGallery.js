@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaTh, FaBars } from "react-icons/fa"; // Import Font Awesome icons
+import { FaTh, FaBars, FaStar } from "react-icons/fa"; // Import Font Awesome icons
 
 // Procedurally import all images from the dino_gallery directory
 const images = require.context(
@@ -14,18 +14,21 @@ const dinosaurs = [
     image: images("./Brachiosaurus.webp"),
     sourcePath: "quadrupeds/Brachiosaurus",
     status: "AVAILABLE",
+    priority: 5,
   },
   {
     name: "Triceratops",
     image: images("./Triceratops.jpg"),
     sourcePath: "quadrupeds/Triceratops",
     status: "IN-GAME",
+    priority: 0,
   },
   {
     name: "T-Rex (classic)",
-    image: images("./T-Rex_classical.webp"),
+    image: images("./T-Rex_classic.webp"),
     sourcePath: "doubleknee/trexClassic",
     status: "IN-GAME",
+    priority: 0,
   },
   // Add more dinosaur objects here...
 ];
@@ -43,14 +46,16 @@ function DinosaurGallery() {
   const getDefaultColumns = () => (window.innerWidth < 640 ? 2 : 4);
   const [columns, setColumns] = useState(getDefaultColumns());
   const [layout, setLayout] = useState("grid"); // "grid" or "list"
-  const [sortBy, setSortBy] = useState("name"); // "name" or "status"
+  const [sortBy, setSortBy] = useState("name"); // "name", "status", or "priority"
   const [sortOrder, setSortOrder] = useState("asc"); // "asc" or "desc"
 
   const sortedDinosaurs = [...dinosaurs].sort((a, b) => {
     const comparison =
       sortBy === "name"
         ? a.name.localeCompare(b.name)
-        : a.status.localeCompare(b.status);
+        : sortBy === "status"
+        ? a.status.localeCompare(b.status)
+        : a.priority - b.priority;
     return sortOrder === "asc" ? comparison : -comparison;
   });
 
@@ -105,6 +110,15 @@ function DinosaurGallery() {
           Sort by Status{" "}
           {sortBy === "status" && (sortOrder === "asc" ? "↑" : "↓")}
         </button>
+        <button
+          onClick={() => toggleSort("priority")}
+          className={`px-4 py-2 rounded text-sm ${
+            sortBy === "priority" ? "bg-green-500 text-white" : "bg-gray-200"
+          }`}
+        >
+          Sort by Priority{" "}
+          {sortBy === "priority" && (sortOrder === "asc" ? "↑" : "↓")}
+        </button>
       </div>
 
       {/* Columns Slider (only for grid layout) */}
@@ -147,8 +161,7 @@ function DinosaurGallery() {
               className={`${
                 layout === "grid"
                   ? "w-full aspect-w-4 aspect-h-3 mb-2"
-                  : // "w-full h-48 mb-2" // Fixed height for grid thumbnails
-                    "w-24 h-24 flex-shrink-0 mr-4"
+                  : "w-24 h-24 flex-shrink-0 mr-4"
               }`}
             >
               <img
@@ -168,6 +181,16 @@ function DinosaurGallery() {
                 {dino.status}
               </p>
               <p className="text-xs text-gray-300">Source: {dino.sourcePath}</p>
+              {/* Display priority stars if status is among specific enums */}
+              {["AVAILABLE", "PICKED-NEEDS-PREP", "PREPPING"].includes(
+                dino.status
+              ) && (
+                <div className="flex items-center mt-2">
+                  {Array.from({ length: dino.priority }, (_, i) => (
+                    <FaStar key={i} className="text-yellow-500 text-sm mr-1" />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         ))}
