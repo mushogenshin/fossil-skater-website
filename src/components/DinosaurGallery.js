@@ -49,15 +49,17 @@ function DinosaurGallery() {
   const [sortBy, setSortBy] = useState("name"); // "name", "status", or "priority"
   const [sortOrder, setSortOrder] = useState("asc"); // "asc" or "desc"
 
-  const sortedDinosaurs = [...dinosaurs].sort((a, b) => {
-    const comparison =
-      sortBy === "name"
-        ? a.name.localeCompare(b.name)
-        : sortBy === "status"
-        ? a.status.localeCompare(b.status)
-        : a.priority - b.priority;
-    return sortOrder === "asc" ? comparison : -comparison;
-  });
+  const sortedDinosaurs = [...dinosaurs]
+    .filter((dino) => sortBy !== "priority" || dino.priority > 0) // Exclude priority = 0 when sorting by priority
+    .sort((a, b) => {
+      const comparison =
+        sortBy === "name"
+          ? a.name.localeCompare(b.name)
+          : sortBy === "status"
+          ? a.status.localeCompare(b.status)
+          : a.priority - b.priority;
+      return sortOrder === "asc" ? comparison : -comparison;
+    });
 
   const toggleSort = (criteria) => {
     if (sortBy === criteria) {
@@ -120,6 +122,13 @@ function DinosaurGallery() {
           {sortBy === "priority" && (sortOrder === "asc" ? "↑" : "↓")}
         </button>
       </div>
+
+      {/* Hint for Priority Sorting */}
+      {sortBy === "priority" && (
+        <p className="text-sm text-gray-500 mb-4">
+          ⚠️ Items with priority = 0 are hidden.
+        </p>
+      )}
 
       {/* Columns Slider (only for grid layout) */}
       {layout === "grid" && (
