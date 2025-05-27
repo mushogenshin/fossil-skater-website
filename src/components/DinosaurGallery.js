@@ -12,14 +12,20 @@ const dinosaurs = [
   {
     name: "Brachiosaurus",
     image: images("./Brachiosaurus.webp"),
-    sourcePath: "/art/brachiosaurus",
-    status: "IN-GAME",
+    sourcePath: "quadrupeds/Brachiosaurus",
+    status: "AVAILABLE",
   },
   {
     name: "Triceratops",
     image: images("./Triceratops.jpg"),
-    sourcePath: "/art/triceratops",
-    status: "PICKED-NEEDS-PREP",
+    sourcePath: "quadrupeds/Triceratops",
+    status: "IN-GAME",
+  },
+  {
+    name: "T-Rex (classic)",
+    image: images("./T-Rex_classical.webp"),
+    sourcePath: "doubleknee/trexClassic",
+    status: "IN-GAME",
   },
   // Add more dinosaur objects here...
 ];
@@ -153,7 +159,6 @@ function DinosaurGallery() {
             </div>
             <div>
               <h2 className="text-lg font-bold">{dino.name}</h2>
-              <p className="text-sm text-gray-400">Source: {dino.sourcePath}</p>
               <p className="text-sm flex items-center text-gray-400">
                 <span
                   className={`w-3 h-3 rounded-full mr-2 ${
@@ -162,6 +167,7 @@ function DinosaurGallery() {
                 ></span>
                 {dino.status}
               </p>
+              <p className="text-xs text-gray-300">Source: {dino.sourcePath}</p>
             </div>
           </div>
         ))}
