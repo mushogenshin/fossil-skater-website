@@ -36,15 +36,24 @@ function DinosaurGallery() {
   const [columns, setColumns] = useState(4);
   const [layout, setLayout] = useState("grid"); // "grid" or "list"
   const [sortBy, setSortBy] = useState("name"); // "name" or "status"
+  const [sortOrder, setSortOrder] = useState("asc"); // "asc" or "desc"
 
   const sortedDinosaurs = [...dinosaurs].sort((a, b) => {
-    if (sortBy === "name") {
-      return a.name.localeCompare(b.name);
-    } else if (sortBy === "status") {
-      return a.status.localeCompare(b.status);
-    }
-    return 0;
+    const comparison =
+      sortBy === "name"
+        ? a.name.localeCompare(b.name)
+        : a.status.localeCompare(b.status);
+    return sortOrder === "asc" ? comparison : -comparison;
   });
+
+  const toggleSort = (criteria) => {
+    if (sortBy === criteria) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortBy(criteria);
+      setSortOrder("asc");
+    }
+  };
 
   return (
     <div className="p-8 min-h-screen">
@@ -70,20 +79,21 @@ function DinosaurGallery() {
 
         {/* Sort Buttons */}
         <button
-          onClick={() => setSortBy("name")}
+          onClick={() => toggleSort("name")}
           className={`px-4 py-2 rounded ${
             sortBy === "name" ? "bg-green-500 text-white" : "bg-gray-200"
           }`}
         >
-          Sort by Name
+          Sort by Name {sortBy === "name" && (sortOrder === "asc" ? "↑" : "↓")}
         </button>
         <button
-          onClick={() => setSortBy("status")}
+          onClick={() => toggleSort("status")}
           className={`px-4 py-2 rounded ${
             sortBy === "status" ? "bg-green-500 text-white" : "bg-gray-200"
           }`}
         >
-          Sort by Status
+          Sort by Status{" "}
+          {sortBy === "status" && (sortOrder === "asc" ? "↑" : "↓")}
         </button>
       </div>
 
@@ -126,7 +136,7 @@ function DinosaurGallery() {
             <div
               className={`${
                 layout === "grid"
-                  ? "w-full aspect-w-4 aspect-h-3 mb-2"
+                  ? "w-full h-48 mb-2" // Fixed height for grid thumbnails
                   : "w-24 h-24 flex-shrink-0 mr-4"
               }`}
             >
