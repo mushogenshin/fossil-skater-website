@@ -1,7 +1,12 @@
 import { useState } from "react";
-import { FaTh, FaBars, FaStar } from "react-icons/fa"; // Import Font Awesome icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTh,
+  faBars,
+  faHandBackFist,
+} from "@fortawesome/free-solid-svg-icons";
 
-// Procedurally import all images from the dino_gallery directory
+// Procedurally import all images from the asset-gallery directory
 const images = require.context(
   "../images/asset-gallery",
   false,
@@ -94,7 +99,7 @@ function DinosaurGallery() {
             layout === "grid" ? "bg-blue-500 text-white" : "bg-gray-200"
           }`}
         >
-          <FaTh className="text-lg" /> {/* Grid Icon */}
+          <FontAwesomeIcon icon={faTh} className="text-lg" /> {/* Grid Icon */}
         </button>
         <button
           onClick={() => setLayout("list")}
@@ -102,7 +107,8 @@ function DinosaurGallery() {
             layout === "list" ? "bg-blue-500 text-white" : "bg-gray-200"
           }`}
         >
-          <FaBars className="text-lg" /> {/* List Icon */}
+          <FontAwesomeIcon icon={faBars} className="text-lg" />{" "}
+          {/* List Icon */}
         </button>
 
         {/* Sort Buttons */}
@@ -206,8 +212,13 @@ function DinosaurGallery() {
                 dino.status
               ) && (
                 <div className="flex items-center mt-2">
+                  <span className="text-xs text-gray-500 mr-2">Priority:</span>
                   {Array.from({ length: dino.priority }, (_, i) => (
-                    <FaStar key={i} className="text-yellow-500 text-sm mr-1" />
+                    <FontAwesomeIcon
+                      key={i}
+                      icon={faHandBackFist}
+                      className="text-yellow-500 text-sm mr-1"
+                    />
                   ))}
                 </div>
               )}
