@@ -152,8 +152,8 @@ function DinosaurGallery() {
             </div>
             <div>
               <h2 className="text-lg font-bold">{dino.name}</h2>
-              <p className="text-sm">Source: {dino.sourcePath}</p>
-              <p className="text-sm flex items-center">
+              <p className="text-sm text-gray-400">Source: {dino.sourcePath}</p>
+              <p className="text-sm flex items-center text-gray-400">
                 <span
                   className={`w-3 h-3 rounded-full mr-2 ${
                     statusColors[dino.status]
