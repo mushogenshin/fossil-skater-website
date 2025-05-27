@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTh,
-  faBars,
-  faHandBackFist,
-} from "@fortawesome/free-solid-svg-icons";
+import { faTh, faBars, faSackDollar } from "@fortawesome/free-solid-svg-icons";
 
 // Procedurally import all images from the asset-gallery directory
 const images = require.context(
@@ -19,16 +15,24 @@ const dinosaurs = [
     type: "dinosaur",
     image: images("./Brachiosaurus.webp"),
     sourcePath: "quadrupeds/Brachiosaurus",
-    status: "AVAILABLE",
+    status: "PICKED-NEEDS-PREP",
     priority: 5,
+  },
+  {
+    name: "Spinosaurus",
+    type: "dinosaur",
+    image: images("./Spinosaurus.webp"),
+    sourcePath: "quadrupeds/Spinosaurus",
+    status: "AVAILABLE",
+    priority: 2,
   },
   {
     name: "Crocodile",
     type: "",
     image: images("./Crocodile.webp"),
     sourcePath: "quadrupeds/Crocodile",
-    status: "AVAILABLE",
-    priority: 3,
+    status: "PICKED-NEEDS-PREP",
+    priority: 4,
   },
   {
     name: "Triceratops",
@@ -212,12 +216,12 @@ function DinosaurGallery() {
                 dino.status
               ) && (
                 <div className="flex items-center mt-2">
-                  <span className="text-xs text-gray-500 mr-2">Priority:</span>
+                  <span className="text-xs text-gray-400 mr-2">Priority:</span>
                   {Array.from({ length: dino.priority }, (_, i) => (
                     <FontAwesomeIcon
                       key={i}
-                      icon={faHandBackFist}
-                      className="text-yellow-500 text-sm mr-1"
+                      icon={faSackDollar}
+                      className="text-pink-300 text-sm mr-1"
                     />
                   ))}
                 </div>
