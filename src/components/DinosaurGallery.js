@@ -1,15 +1,17 @@
 import { useState } from "react";
+import Brachiosaurus from "../images/dino_gallery/Brachiosaurus.webp";
+import Triceratops from "../images/dino_gallery/Triceratops.jpg";
 
 const dinosaurs = [
   {
     name: "Tyrannosaurus Rex",
-    image: "/images/tyrannosaurus-rex.jpg",
+    image: Brachiosaurus,
     sourcePath: "/art/tyrannosaurus-rex",
     status: "IN-GAME",
   },
   {
     name: "Triceratops",
-    image: "/images/triceratops.jpg",
+    image: Triceratops,
     sourcePath: "/art/triceratops",
     status: "PICKED-NEEDS-PREP",
   },
@@ -29,7 +31,7 @@ function DinosaurGallery() {
   const [columns, setColumns] = useState(4);
 
   return (
-    <div className="p-8">
+    <div className="p-8 min-h-screen">
       <h1 className="text-3xl font-bold mb-4">Dinosaur Gallery</h1>
       <div className="mb-4">
         <label htmlFor="columns" className="mr-2">
@@ -54,11 +56,13 @@ function DinosaurGallery() {
             key={index}
             className="border rounded-lg p-4 bg-white shadow-md text-black"
           >
-            <img
-              src={dino.image}
-              alt={dino.name}
-              className="w-full h-32 object-cover rounded-md mb-2"
-            />
+            <div className="w-full aspect-w-4 aspect-h-3 mb-2">
+              <img
+                src={dino.image}
+                alt={dino.name}
+                className="w-full h-full object-cover rounded-md"
+              />
+            </div>
             <h2 className="text-lg font-bold">{dino.name}</h2>
             <p className="text-sm">Source: {dino.sourcePath}</p>
             <p className="text-sm flex items-center">
