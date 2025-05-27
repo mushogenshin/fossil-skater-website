@@ -34,7 +34,8 @@ const statusColors = {
 };
 
 function DinosaurGallery() {
-  const [columns, setColumns] = useState(4);
+  const getDefaultColumns = () => (window.innerWidth < 640 ? 2 : 4);
+  const [columns, setColumns] = useState(getDefaultColumns());
   const [layout, setLayout] = useState("grid"); // "grid" or "list"
   const [sortBy, setSortBy] = useState("name"); // "name" or "status"
   const [sortOrder, setSortOrder] = useState("asc"); // "asc" or "desc"
