@@ -27,7 +27,7 @@ function App() {
                 </div>
               }
             />
-            <Route path="/dinosaur-gallery" element={<DinosaurGallery />} />
+            <Route path="/roadmap" element={<DinosaurGallery />} />
           </Routes>
         </div>
       </div>

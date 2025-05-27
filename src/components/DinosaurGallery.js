@@ -57,7 +57,9 @@ function DinosaurGallery() {
 
   return (
     <div className="p-8 min-h-screen">
-      <h1 className="text-3xl font-bold mb-4">Dinosaur Gallery</h1>
+      <h1 className="text-3xl font-bold mb-4">
+        Truong CG Artist's Dinosaur Assets
+      </h1>
       <div className="mb-4 flex flex-wrap gap-4">
         {/* Layout Toggle Buttons */}
         <button
