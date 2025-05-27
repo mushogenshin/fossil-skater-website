@@ -67,12 +67,28 @@ const dinosaurs = [
     priority: 2,
   },
   {
+    name: "Pteranodon",
+    type: "dinosaur",
+    image: images("./Pteranodon.jpg"),
+    sourcePath: "doubleKnee/pteranodon",
+    status: "AVAILABLE",
+    priority: 4,
+  },
+  {
     name: "Crocodile",
-    type: "",
+    type: "animal",
     image: images("./Crocodile.webp"),
     sourcePath: "quadrupeds/Crocodile",
     status: "PICKED-NEEDS-PREP",
     priority: 4,
+  },
+  {
+    name: "Ben Dragon",
+    type: "fantasy",
+    image: images("./BenDragon.webp"),
+    sourcePath: "quadrupeds/BenDragon",
+    status: "AVAILABLE",
+    priority: 1,
   },
   {
     name: "Triceratops",
@@ -183,14 +199,12 @@ function DinosaurGallery() {
           {sortBy === "priority" && (sortOrder === "asc" ? "↑" : "↓")}
         </button>
       </div>
-
       {/* Hint for Priority Sorting */}
       {sortBy === "priority" && (
         <p className="text-sm text-gray-500 mb-4">
           ⚠️ Items with priority = 0 are hidden.
         </p>
       )}
-
       {/* Columns Slider (only for grid layout) */}
       {layout === "grid" && (
         <div className="mb-4">
@@ -208,7 +222,6 @@ function DinosaurGallery() {
           />
         </div>
       )}
-
       {/* Gallery Display */}
       <div
         className={`${
@@ -250,7 +263,6 @@ function DinosaurGallery() {
                 ></span>
                 {dino.status}
               </p>
-              <p className="text-xs text-gray-300">Source: {dino.sourcePath}</p>
               {/* Display priority stars if status is among specific enums */}
               {["AVAILABLE", "PICKED-NEEDS-PREP", "PREPPING"].includes(
                 dino.status
@@ -266,6 +278,9 @@ function DinosaurGallery() {
                   ))}
                 </div>
               )}
+              <p className="text-xs text-gray-200">
+                Source: {dino.sourcePath.split("/")[0]}
+              </p>
             </div>
           </div>
         ))}
