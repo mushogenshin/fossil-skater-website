@@ -1,17 +1,22 @@
 import { useState } from "react";
-import Brachiosaurus from "../images/dino_gallery/Brachiosaurus.webp";
-import Triceratops from "../images/dino_gallery/Triceratops.jpg";
+
+// Procedurally import all images from the dino_gallery directory
+const images = require.context(
+  "../images/dino-gallery",
+  false,
+  /\.(png|jpe?g|webp)$/
+);
 
 const dinosaurs = [
   {
-    name: "Tyrannosaurus Rex",
-    image: Brachiosaurus,
-    sourcePath: "/art/tyrannosaurus-rex",
+    name: "Brachiosaurus",
+    image: images("./Brachiosaurus.webp"),
+    sourcePath: "/art/brachiosaurus",
     status: "IN-GAME",
   },
   {
     name: "Triceratops",
-    image: Triceratops,
+    image: images("./Triceratops.jpg"),
     sourcePath: "/art/triceratops",
     status: "PICKED-NEEDS-PREP",
   },
