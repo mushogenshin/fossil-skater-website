@@ -15,7 +15,7 @@ const dinosaurs = [
     type: "dinosaur",
     image: images("./Brachiosaurus.webp"),
     sourcePath: "quadrupeds/Brachiosaurus",
-    status: "PICKED-NEEDS-PREP",
+    status: "PICKED. NEEDS PREP",
     priority: 5,
   },
   {
@@ -23,7 +23,7 @@ const dinosaurs = [
     type: "dinosaur",
     image: images("./Spinosaurus.webp"),
     sourcePath: "quadrupeds/Spinosaurus",
-    status: "AVAILABLE",
+    status: "CAN USE",
     priority: 2,
   },
   {
@@ -31,7 +31,7 @@ const dinosaurs = [
     type: "dinosaur",
     image: images("./Allosaurus.jpg"),
     sourcePath: "doubleKnee/Allosaurus",
-    status: "AVAILABLE",
+    status: "CAN USE",
     priority: 2,
   },
   {
@@ -39,7 +39,7 @@ const dinosaurs = [
     type: "dinosaur",
     image: images("./Allosaurus-2.webp"),
     sourcePath: "doubleKnee/Allosaurus2",
-    status: "AVAILABLE",
+    status: "CAN USE",
     priority: 2,
   },
   {
@@ -47,7 +47,7 @@ const dinosaurs = [
     type: "dinosaur",
     image: images("./Irex.jpg"),
     sourcePath: "doubleKnee/irexDinosaur",
-    status: "AVAILABLE",
+    status: "CAN USE",
     priority: 2,
   },
   {
@@ -55,7 +55,7 @@ const dinosaurs = [
     type: "dinosaur",
     image: images("./Carnotaurus.webp"),
     sourcePath: "doubleKnee/carnotaurusDinosaur",
-    status: "AVAILABLE",
+    status: "CAN USE",
     priority: 2,
   },
   {
@@ -63,7 +63,7 @@ const dinosaurs = [
     type: "dinosaur",
     image: images("./LightningClaw.webp"),
     sourcePath: "doubleKnee/lightningClawDinosaur",
-    status: "AVAILABLE",
+    status: "CAN USE",
     priority: 2,
   },
   {
@@ -71,7 +71,7 @@ const dinosaurs = [
     type: "dinosaur",
     image: images("./Pteranodon.jpg"),
     sourcePath: "doubleKnee/pteranodon",
-    status: "AVAILABLE",
+    status: "CAN USE",
     priority: 4,
   },
   {
@@ -79,7 +79,7 @@ const dinosaurs = [
     type: "animal",
     image: images("./Crocodile.webp"),
     sourcePath: "quadrupeds/Crocodile",
-    status: "PICKED-NEEDS-PREP",
+    status: "PICKED. NEEDS PREP",
     priority: 4,
   },
   {
@@ -87,7 +87,15 @@ const dinosaurs = [
     type: "fantasy",
     image: images("./BenDragon.webp"),
     sourcePath: "quadrupeds/BenDragon",
-    status: "AVAILABLE",
+    status: "CAN USE",
+    priority: 1,
+  },
+  {
+    name: "Dragol Baby",
+    type: "fantasy",
+    image: images("./DragolBaby.webp"),
+    sourcePath: "quadrupeds/DragolBaby",
+    status: "CAN USE",
     priority: 1,
   },
   {
@@ -106,16 +114,63 @@ const dinosaurs = [
     status: "IN-GAME",
     priority: 0,
   },
-  // Add more dinosaur objects here...
+  {
+    name: "Human Skeleton",
+    type: "humanoid",
+    image: images("./HumanSkeleton.webp"),
+    sourcePath: "bipeds/humanSkeleton",
+    status: "CAN USE",
+    priority: 0,
+  },
+  {
+    name: "Écorché Human",
+    type: "humanoid",
+    image: images("./EcorcheHuman.webp"),
+    sourcePath: "bipeds/anatomyHelper",
+    status: "CAN USE",
+    priority: 0,
+  },
+  {
+    name: "Kong Skeleton",
+    type: "humanoid",
+    image: images("./KongSkeleton.jpg"),
+    sourcePath: "bipeds/KongSkeleton",
+    status: "CAN USE",
+    priority: 0,
+  },
+  {
+    name: "Alien Big Head",
+    type: "fantasy",
+    image: images("./AlienBigHead.webp"),
+    sourcePath: "doubleKnee/alienBigHead",
+    status: "ON HOLD",
+    priority: 0,
+  },
+  {
+    name: "Alien Covenant",
+    type: "fantasy",
+    image: images("./AlienCovenant.webp"),
+    sourcePath: "doubleKnee/alienCovenant",
+    status: "ON HOLD",
+    priority: 0,
+  },
+  {
+    name: "Demon Big Red",
+    type: "fantasy",
+    image: images("./DemonBigRed.webp"),
+    sourcePath: "doubleKnee/demonBigRed",
+    status: "CAN USE",
+    priority: 1,
+  },
 ];
 
 const statusColors = {
-  "NOT SUITABLE": "bg-red-500",
-  AVAILABLE: "bg-green-500",
-  "PICKED-NEEDS-PREP": "bg-yellow-500",
+  "ON HOLD": "bg-yellow-500",
+  "CAN USE": "bg-green-500",
+  "PICKED. NEEDS PREP": "bg-red-500",
   PREPPING: "bg-blue-500",
   "IN-GAME": "bg-purple-500",
-  "IN-GAME-UNUSED": "bg-gray-500",
+  "IN-ENGINE. UNUSED": "bg-gray-500",
 };
 
 function DinosaurGallery() {
@@ -264,11 +319,11 @@ function DinosaurGallery() {
                 {dino.status}
               </p>
               {/* Display priority stars if status is among specific enums */}
-              {["AVAILABLE", "PICKED-NEEDS-PREP", "PREPPING"].includes(
+              {["CAN USE", "PICKED. NEEDS PREP", "PREPPING"].includes(
                 dino.status
               ) && (
                 <div className="flex items-center mt-2">
-                  <span className="text-xs text-gray-400 mr-2">Priority:</span>
+                  <span className="text-xxs text-gray-400 mr-2">Priority:</span>
                   {Array.from({ length: dino.priority }, (_, i) => (
                     <FontAwesomeIcon
                       key={i}
@@ -278,7 +333,7 @@ function DinosaurGallery() {
                   ))}
                 </div>
               )}
-              <p className="text-xs text-gray-200">
+              <p className="text-xxs text-gray-200">
                 Source: {dino.sourcePath.split("/")[0]}
               </p>
             </div>

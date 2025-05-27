@@ -6,6 +6,9 @@ module.exports = {
       backgroundImage: {
         "hero-pattern": "url('images/background.png')",
       },
+      fontSize: {
+        xxs: "0.625rem", // 10px
+      },
     },
   },
   plugins: [],
