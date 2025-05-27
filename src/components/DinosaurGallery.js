@@ -27,6 +27,46 @@ const dinosaurs = [
     priority: 2,
   },
   {
+    name: "Allosaurus",
+    type: "dinosaur",
+    image: images("./Allosaurus.jpg"),
+    sourcePath: "doubleKnee/Allosaurus",
+    status: "AVAILABLE",
+    priority: 2,
+  },
+  {
+    name: "Allosaurus 2",
+    type: "dinosaur",
+    image: images("./Allosaurus-2.webp"),
+    sourcePath: "doubleKnee/Allosaurus2",
+    status: "AVAILABLE",
+    priority: 2,
+  },
+  {
+    name: "Irex",
+    type: "dinosaur",
+    image: images("./Irex.jpg"),
+    sourcePath: "doubleKnee/irexDinosaur",
+    status: "AVAILABLE",
+    priority: 2,
+  },
+  {
+    name: "Carnotaurus",
+    type: "dinosaur",
+    image: images("./Carnotaurus.webp"),
+    sourcePath: "doubleKnee/carnotaurusDinosaur",
+    status: "AVAILABLE",
+    priority: 2,
+  },
+  {
+    name: "Lightning Claw",
+    type: "dinosaur",
+    image: images("./LightningClaw.webp"),
+    sourcePath: "doubleKnee/lightningClawDinosaur",
+    status: "AVAILABLE",
+    priority: 2,
+  },
+  {
     name: "Crocodile",
     type: "",
     image: images("./Crocodile.webp"),
@@ -161,7 +201,7 @@ function DinosaurGallery() {
             id="columns"
             type="range"
             min="2"
-            max="6"
+            max="8"
             value={columns}
             onChange={(e) => setColumns(Number(e.target.value))}
             className="w-48"
