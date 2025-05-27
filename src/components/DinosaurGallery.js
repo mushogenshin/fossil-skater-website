@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaTh, FaBars } from "react-icons/fa"; // Import Font Awesome icons
 
 // Procedurally import all images from the dino_gallery directory
 const images = require.context(
@@ -68,7 +69,7 @@ function DinosaurGallery() {
             layout === "grid" ? "bg-blue-500 text-white" : "bg-gray-200"
           }`}
         >
-          Grid View
+          <FaTh className="text-lg" /> {/* Grid Icon */}
         </button>
         <button
           onClick={() => setLayout("list")}
@@ -76,7 +77,7 @@ function DinosaurGallery() {
             layout === "list" ? "bg-blue-500 text-white" : "bg-gray-200"
           }`}
         >
-          List View
+          <FaBars className="text-lg" /> {/* List Icon */}
         </button>
 
         {/* Sort Buttons */}
