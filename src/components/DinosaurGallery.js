@@ -83,7 +83,7 @@ function DinosaurGallery() {
         {/* Sort Buttons */}
         <button
           onClick={() => toggleSort("name")}
-          className={`px-4 py-2 rounded ${
+          className={`px-4 py-2 rounded text-sm ${
             sortBy === "name" ? "bg-green-500 text-white" : "bg-gray-200"
           }`}
         >
@@ -91,7 +91,7 @@ function DinosaurGallery() {
         </button>
         <button
           onClick={() => toggleSort("status")}
-          className={`px-4 py-2 rounded ${
+          className={`px-4 py-2 rounded text-sm ${
             sortBy === "status" ? "bg-green-500 text-white" : "bg-gray-200"
           }`}
         >
@@ -139,8 +139,9 @@ function DinosaurGallery() {
             <div
               className={`${
                 layout === "grid"
-                  ? "w-full h-48 mb-2" // Fixed height for grid thumbnails
-                  : "w-24 h-24 flex-shrink-0 mr-4"
+                  ? "w-full aspect-w-4 aspect-h-3 mb-2"
+                  : // "w-full h-48 mb-2" // Fixed height for grid thumbnails
+                    "w-24 h-24 flex-shrink-0 mr-4"
               }`}
             >
               <img
